@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Hover Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    .hover-img {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="card1 mb-3">
+    <img src="vim1.jpeg" 
+         data-hover="vim2.jpeg" 
+         class="card-img-top p-2 rounded-4 object-fit-cover hover-img" 
+         alt="Better Magic Gel Remover">
+    <div class="card-body text-center p-3">
+      <h5 class="card-title">Better Magic Gel Remover</h5>
+      <div class="quantity-controls" id="control1">
+        <div class="quantity-wrapper mt-2 w-100 w-md-50">
+          <button class="btn quantity-btn">-</button>
+          <span>1</span>
+          <button class="btn quantity-btn">+</button>
+        </div>
+      </div>
+      <button class="btn btn-primary w-100 w-md-50 mt-3" id="showBtn1">
+        <a href="#" class="text-decoration-none text-white">Buy Now</a>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hoverImg = document.querySelector(".hover-img");
+    const originalSrc = hoverImg.src;
+    const hoverSrc = hoverImg.getAttribute("data-hover");
+
+    // Function to change to hover image
+    const changeToHover = () => {
+      hoverImg.src = hoverSrc;
+    };
+
+    // Function to revert to the original image
+    const revertToOriginal = () => {
+      hoverImg.src = originalSrc;
+    };
+
+    // Handle desktop hover
+    hoverImg.addEventListener("mouseenter", changeToHover);
+    hoverImg.addEventListener("mouseleave", revertToOriginal);
+
+    // Handle mobile "hover" using touchmove
+    hoverImg.addEventListener("touchmove", changeToHover);
+    hoverImg.addEventListener("touchend", revertToOriginal);
+  });
+</script>
+
+</body>
+</html>

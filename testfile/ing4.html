@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Image Hover</title>
+  <style>
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .card .hover-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    /* Show hover image on hover (desktop) */
+    .card:hover .hover-img {
+      opacity: 1;
+    }
+
+    /* Show hover image on touch (mobile) */
+    @media (max-width: 768px) {
+      .card:active .hover-img {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <img src="vim1.jpeg" alt="Original Image">
+  <img src="vim2.jpeg" class="hover-img" alt="Hover Image">
+</div>
+
+</body>
+</html>

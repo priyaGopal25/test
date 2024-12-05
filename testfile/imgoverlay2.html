@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Overlay Hover</title>
+  <style>
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 300px; /* Set the card width */
+    }
+
+    /* Base image styling */
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Overlay image styling */
+    .overlay-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Show overlay image on hover (desktop) */
+    .card:hover .overlay-img {
+      opacity: 1;
+    }
+
+    /* Automatically show overlay on touch (mobile) */
+    @media (max-width: 768px) {
+      .card:active .overlay-img {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <img src="vim1.jpeg" alt="Original Image">
+  <img src="vim2.jpeg" class="overlay-img" alt="Hover Image">
+</div>
+
+</body>
+</html>

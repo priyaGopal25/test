@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Hover Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    .card1 {
+      position: relative;
+    }
+
+    /* Default image styling */
+    .hover-img {
+      width: 100%;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Second image overlay */
+    .hover-img-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Show second image on hover (desktop) */
+    .card1:hover .hover-img-hover {
+      opacity: 1;
+    }
+
+    /* Simulate hover for touch devices (mobile) */
+    @media (max-width: 768px) {
+      .card1:active .hover-img-hover {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="card1 mb-3">
+    <img src="vim1.jpeg" class="hover-img rounded-4" alt="Original Image">
+    <img src="vim2.jpeg" class="hover-img-hover rounded-4" alt="Hover Image">
+    <div class="card-body text-center p-3">
+      <h5 class="card-title">Better Magic Gel Remover</h5>
+      <div class="quantity-controls">
+        <div class="quantity-wrapper mt-2 w-100 w-md-50">
+          <button class="btn quantity-btn">-</button>
+          <span>1</span>
+          <button class="btn quantity-btn">+</button>
+        </div>
+      </div>
+      <button class="btn btn-primary w-100 w-md-50 mt-3">
+        <a href="#" class="text-decoration-none text-white">Buy Now</a>
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
